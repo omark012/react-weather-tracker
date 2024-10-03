@@ -5,11 +5,13 @@ const Navbar = ({ isDarkMode, toggleColorMode }) => {
   return (
     <nav className={`h-[10vh]`}>
       <div
-        className="p-4 bg-white text-gray-800 shadow-lg
-       dark:bg-gray-800 dark:text-white"
+        className="p-4 bg-sky-200 text-gray-800 shadow-lg
+       dark:bg-sky-950 dark:text-white"
       >
         <div className="container mx-auto flex items-center justify-between">
-          <div className="logo text-xl sm:text-2xl font-bold">Weather App</div>
+          <div className="logo text-xl sm:text-2xl font-bold">
+            🌡️ Weather App
+          </div>
 
           {/* color mode */}
           <button

@@ -58,8 +58,8 @@ const App = () => {
   }, []);
 
   return (
-    <div>
-      <div className="min-h-screen">
+    <div className="">
+      <div className="min-h-screen bg-sky-100 dark:bg-sky-900">
         <Navbar toggleColorMode={toggleColorMode} isDarkMode={isDarkMode} />
         <WeatherCard
           data={currentWeather}

@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { FaSearch } from "react-icons/fa";
 import { IoLocationSharp } from "react-icons/io5";
 
-const WeatherCard = ({ data, loading, onSearch, weatherImage }) => {
+const WeatherCard = ({ data, onSearch }) => {
   const [inputCity, setInputCity] = useState("");
 
   const handleInputChange = (event) => {
@@ -27,14 +27,14 @@ const WeatherCard = ({ data, loading, onSearch, weatherImage }) => {
             name="inputCity"
             placeholder="Search by City"
             className="w-full text-md p-4 pr-14 border border-gray-300 
-            rounded-md shadow-lg outline-none dark:bg-gray-800 
-            dark:text-white"
+            rounded-md shadow-lg outline-none bg-sky-200 dark:bg-sky-950
+            dark:text-white dark:border-none"
           />
           <button
             type="submit"
             className="absolute inset-y-0 right-0 flex items-center p-4 
             text-white bg-blue-500 border-y border-r border-gray-300  
-              rounded-r-md hover:bg-blue-600 ease-in-out"
+              rounded-r-md hover:bg-blue-600 ease-in-out dark:border-none"
           >
             <FaSearch />
           </button>
@@ -47,16 +47,18 @@ const WeatherCard = ({ data, loading, onSearch, weatherImage }) => {
       ) : (
         <div
           className="card mt-4 max-w-lg mx-auto shadow-xl border border-1 
-      border-zinc-200 rounded-lg overflow-hidden bg-white 
-      dark:bg-slate-600 
-      dark:text-white"
+      border-zinc-200 rounded-lg overflow-hidden bg-sky-200
+      dark:bg-sky-950 dark:text-white dark:border-none"
         >
           {/* Header with Weather Image */}
           <div
             className="h-48 bg-cover bg-center"
-            style={{ backgroundImage: `url(${weatherImage})` }}
+            style={{
+              backgroundImage: `url(https://images.unsplash.com/photo-1443694910004-3567042689f5?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjJ8fHNreXxlbnwwfHwwfHx8MA%3D%3D)`,
+            }}
           >
             <div className="flex flex-col-reverse items-center justify-center h-full bg-black bg-opacity-40  ">
+              <p className="text-white">{data.weather[0].description}</p>
               <img
                 src={`http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`}
                 alt={data.weather[0].description}

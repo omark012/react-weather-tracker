@@ -1,6 +1,7 @@
 // src/WeatherCard.js
 import React, { useState } from "react";
 import { FaSearch } from "react-icons/fa";
+import { IoLocationSharp } from "react-icons/io5";
 
 const WeatherCard = ({ data, loading, onSearch, weatherImage }) => {
   const [inputCity, setInputCity] = useState("");
@@ -15,9 +16,9 @@ const WeatherCard = ({ data, loading, onSearch, weatherImage }) => {
   };
 
   return (
-    <div className="mt-10">
+    <div className="mt-6">
       {/* Search bar */}
-      <div className="search max-w-lg mx-auto mt-10 ">
+      <div className="search max-w-lg mx-auto">
         <form onSubmit={handleSearch} className="relative w-full ">
           <input
             type="text"
@@ -45,7 +46,7 @@ const WeatherCard = ({ data, loading, onSearch, weatherImage }) => {
         <p className="text-center">Loading...</p>
       ) : (
         <div
-          className="card mt-5 max-w-lg mx-auto shadow-xl border border-1 
+          className="card mt-4 max-w-lg mx-auto shadow-xl border border-1 
       border-zinc-200 rounded-lg overflow-hidden bg-white 
       dark:bg-slate-600 
       dark:text-white"
@@ -61,8 +62,8 @@ const WeatherCard = ({ data, loading, onSearch, weatherImage }) => {
                 alt={data.weather[0].description}
                 className="w-25"
               />
-              <h2 className="text-xl sm:text-2xl text-white">
-                {data.name}, {data.sys.country}
+              <h2 className="flex items-center text-xl sm:text-2xl text-white">
+                <IoLocationSharp /> {data.name}, {data.sys.country}
               </h2>
             </div>
           </div>

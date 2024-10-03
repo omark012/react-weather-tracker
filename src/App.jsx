@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import Navbar from "./components/Navbar";
 import WeatherCard from "./components/WeatherCard";
-import SearchBar from "./components/SearchBar";
+import Forecast from "./components/Forecast";
+import Footer from "./components/Footer";
 
 const App = () => {
   const [isDarkMode, setIsDarkMode] = useState(false);
@@ -51,20 +52,23 @@ const App = () => {
     fetchData(newCity);
   };
 
+  console.log(forecast);
   useEffect(() => {
     fetchData(city); // Fetch data for the default city on initial load
   }, []);
 
-  console.log(forecast);
-
   return (
     <div>
-      <Navbar toggleColorMode={toggleColorMode} isDarkMode={isDarkMode} />
-      <WeatherCard
-        data={currentWeather}
-        loading={loading}
-        onSearch={handleSearch}
-      />
+      <div className="min-h-screen">
+        <Navbar toggleColorMode={toggleColorMode} isDarkMode={isDarkMode} />
+        <WeatherCard
+          data={currentWeather}
+          loading={loading}
+          onSearch={handleSearch}
+        />
+        <Forecast forecastData={forecast} />
+      </div>
+      <Footer />
     </div>
   );
 };

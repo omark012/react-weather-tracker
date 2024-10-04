@@ -18,8 +18,8 @@ const Forecast = ({ forecastData }) => {
     .concat(weekdays.slice(0, dayInWeek));
 
   return (
-    <div className="container mx-auto py-8">
-      <h2 className="text-2xl dark:text-white font-bold text-center mb-6">
+    <div className="container  mt-5 mx-auto p-3 sm:py-8">
+      <h2 className="text-xl sm:text-2xl dark:text-white font-bold text-center mb-6">
         7-Day Weather Forecast
       </h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-4">

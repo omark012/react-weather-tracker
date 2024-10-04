@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import { FaSearch } from "react-icons/fa";
 import { IoLocationSharp } from "react-icons/io5";
+import Spinner from "./Spinner";
 
 const WeatherCard = ({ data, onSearch }) => {
   const [inputCity, setInputCity] = useState("");
@@ -16,7 +17,7 @@ const WeatherCard = ({ data, onSearch }) => {
   };
 
   return (
-    <div className="mt-6">
+    <div className="mt-6 p-3 sm:p-0">
       {/* Search bar */}
       <div className="search max-w-lg mx-auto">
         <form onSubmit={handleSearch} className="relative w-full ">
@@ -43,7 +44,7 @@ const WeatherCard = ({ data, onSearch }) => {
 
       {/* Card */}
       {!data ? (
-        <p className="text-center">Loading...</p>
+        <Spinner />
       ) : (
         <div
           className="card mt-4 max-w-lg mx-auto shadow-xl border border-1 
@@ -54,10 +55,10 @@ const WeatherCard = ({ data, onSearch }) => {
           <div
             className="h-48 bg-cover bg-center"
             style={{
-              backgroundImage: `url(https://images.unsplash.com/photo-1443694910004-3567042689f5?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjJ8fHNreXxlbnwwfHwwfHx8MA%3D%3D)`,
+              backgroundImage: `url(https://images.unsplash.com/photo-1711025950384-de14eed483bf?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fGJsdWUlMjBza3klMjB3aXRoJTIwY2xvdWR8ZW58MHx8MHx8fDA%3D)`,
             }}
           >
-            <div className="flex flex-col-reverse items-center justify-center h-full bg-black bg-opacity-40  ">
+            <div className="flex flex-col-reverse items-center justify-center h-full bg-black bg-opacity-30  ">
               <p className="text-white">{data.weather[0].description}</p>
               <img
                 src={`http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`}

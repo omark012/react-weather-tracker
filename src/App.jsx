@@ -16,14 +16,16 @@ const App = () => {
     document.documentElement.classList.toggle("dark");
   };
 
+  const apiId = import.meta.env.VITE_WEATHER_API_ID;
+
   const fetchData = async (cityName) => {
     setLoading(true);
     try {
       const currentWeatherPromise = fetch(
-        `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&units=metric&appid=bf9306ba2c2e58fe1bab9c51cceb4749`
+        `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&units=metric&appid=${apiId}`
       );
       const forecastPromise = fetch(
-        `https://api.openweathermap.org/data/2.5/forecast?q=${cityName}&units=metric&appid=bf9306ba2c2e58fe1bab9c51cceb4749`
+        `https://api.openweathermap.org/data/2.5/forecast?q=${cityName}&units=metric&appid=${apiId}`
       );
 
       const responses = await Promise.all([
@@ -52,7 +54,6 @@ const App = () => {
     fetchData(newCity);
   };
 
-  console.log(forecast);
   useEffect(() => {
     fetchData(city); // Fetch data for the default city on initial load
   }, []);

@@ -1,6 +1,6 @@
 # Skyways Weather App
 
-You can try out the Skyways Weather App <a href="https://skyways.netlify.app/" target="_blank">Go to App</a>
+You can try out the Skyways Weather App [Go to App](https://skyways.netlify.app/).
 ## Overview
 
 Skyways is a modern weather application built using **Vite**, **Tailwind CSS**, and **React**. It provides users with current weather information and a detailed 7-day forecast, all sourced from the **OpenWeatherMap API**. Whether you're planning your day or preparing for a weekend trip, Skyways has you covered with accurate and up-to-date weather data.
